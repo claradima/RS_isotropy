@@ -89,7 +89,7 @@ void GetPMTPosDir(const RAT::DU::PMTInfo& pmtinfo) {
     for (int it = 0; it < NPMTS; it++) {
         // Use normal or HQE PMTs only
         // Comment line below for now
-        //if (pmtinfo.GetType(it) != 1 && pmtinfo.GetType(it) != 7) continue;
+        if (pmtinfo.GetType(it) != 1) continue;
 
         // Get PMT information
         TVector3 pmtPos = pmtinfo.GetPosition(it);       // position [mm]
