@@ -20,7 +20,7 @@
 ///
 /// You can access other locations in rat, but to attach folder to
 /// container by running the container with:
-/// sudo docker run -ti --init --rm -v /home/claramariadima/SNO/RS_isotropy:/rat/RS_isotropy -v /home/claradima/SNO/rat:/rat snoplus/rat-container:root5
+/// sudo docker run -ti --init --rm -v /home/claramariadima/SNO/RS_isotropy:/rat/RS_isotropy -v /home/claramariadima/SNO/rat:/rat snoplus/rat-container:root5
 ///
 /// -v option specifies folder to attach
 ///
@@ -39,8 +39,14 @@
 /// Need fstream for std::ofstream to save files
 #include <fstream>
 
+#include <RAT/Log.hh>
 #include <RAT/DU/PMTInfo.hh>
 #include <RAT/DU/Utility.hh>
+#include <RAT/DU/DSReader.hh>
+#include <RAT/DB.hh>
+
+using namespace RAT;
+using namespace RAT::DU;
 
 /// TVector is already included? not sure how to compile and run
 /// but I guess we'll see
@@ -69,9 +75,11 @@
 void GetPMTPosDir(const RAT::DU::PMTInfo& pmtinfo) {
     const int NPMTS = pmtinfo.GetCount();
     
+    std::cout << NPMTS << std::endl;
+    
     // Check if the number of PMTs is valid
     if (NPMTS <= 0) {
-        throw std::runtime_error("Error: No PMTs found. Check your VPN connection :)");
+        throw std::runtime_error("Error: No PMTs found");
     }
 
     // Open a file for writing
@@ -99,6 +107,15 @@ void GetPMTPosDir(const RAT::DU::PMTInfo& pmtinfo) {
 }
 
 int main() {
+
+    // Daniel said: need to initialize ratds, so give it any ratds file 
+    // ratds and ntuple files are actually both root files
+    // the difference is the TTree structure (both T and runT in ratds)
+    // ratds is standard, so running sim most likely makes ratds file
+    // ran electrons simulations from mac, moved file in current dir
+    
+    RAT::DU::DSReader dsreader("electrons_labppo.root");
+
     // Retrieve PMT information
     const RAT::DU::PMTInfo& pmtinfo = RAT::DU::Utility::Get()->GetPMTInfo();
 
