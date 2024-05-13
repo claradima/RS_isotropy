@@ -1,0 +1,34 @@
+Here is what you can find in this folder:
+
+1) a python script that produces a bunch of PMT map plots and a bunch of associated histograms
+2) some .csv files that contain the posiitons of all PMTs and the Nodes that I picked 
+3) PMT map plots
+4) many histograms
+5) IsotropyStuff.pdf - slides that explain how and why these histograms were made + what they mean
+6) Two screenshots in which I spread all the plots made with a certain value of alpha on my screen so they can be viewed side by side; i used alpha = pi/6 and alpha = pi/8 because these plots are the nicest and are doing the best job at proving my points :) 
+
+Each PMT map corresponds to one PMT Set. Each PMT set also corresponds to 9 histograms, one for each opening angle in the set {pi/3, pi/4, pi/6, pi/8, pi/10}.
+
+Set 1 has all PMTs on.
+
+Sets 2-5 have one big hole each. The hole keeps increasing with set number (first is missing 400 PMTs, the second one 800, then 1200 then 1600)
+
+Sets 6-9 miss the same numbers of PMTs as sets 2-5, but they are randomly distributed throughout the detector (picked e.g. 400 indices form PMT list and threw them in the trash)
+
+Here are some observations about the results:
+
+	When we have a big hole, we have a long tail to the left; this makes sense.
+	When we have a big hole, if we keep increasing the hole (up to a point, this won't hold if we turn off half the detector) the median of the dstribution doesn't actually change that much. Maybe it decreases a tiny tiny bit. This also makes sense, as most caps are not affected 
+	When we have a big hole, the normalized stdev keeps increasing with the size of the hole; this makes sense because the tail gets longer and thicker
+	
+	When we have uniformly-ish spread out missing PMTs, there is no tail at small cap angles, or the tail is tiny
+	When we have unformly-ish spread out missing PMTs, the normalized stdev doesn't change much when we increase the number of missing PMTs. For alpha = pi/8 for example, it stays around 0.03 (between 0.029 and 0.035), whereas a big hole makes it vary between 0.133 and 0.375
+	When we have uniformly-ish spread out missing PMTs, the median is always similar to the mean, so the median decreases as we remove more PMTs
+	
+	
+These two cases (one big hole vs evenly spread tiny holes) are the extremes. The results confirm that the normalized stdev is a good ish measure of isotropy. They also show that the median is not a good measure for coverage, because it doesn't change much if we keep turning off PMTs in roughly the same spot.
+
+So now I have to run some simulations and compare these with some actual physics results, and see how to make the cuts. To be honest, given Logan's position dependent correction, I am quite confident that if we just simulate electrons and look at the reconstructed energy, we can tolerate a lot of unisotropy. Maybe we'll have to look at something else as well, I don't know what different analyses would need. I think we can also tolerate some pretty bad coverage. We'll see! 
+
+
+
