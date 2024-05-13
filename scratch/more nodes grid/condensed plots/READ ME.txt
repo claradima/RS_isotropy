@@ -5,7 +5,7 @@ Here is what you can find in this folder:
 3) PMT map plots
 4) many histograms
 5) IsotropyStuff.pdf - slides that explain how and why these histograms were made + what they mean
-6) Two screenshots in which I spread all the plots made with a certain value of alpha on my screen so they can be viewed side by side; i used alpha = pi/6 and alpha = pi/8 because these plots are the nicest and are doing the best job at proving my points :) 
+
 
 Each PMT map corresponds to one PMT Set. Each PMT set also corresponds to 9 histograms, one for each opening angle in the set {pi/3, pi/4, pi/6, pi/8, pi/10}.
 
