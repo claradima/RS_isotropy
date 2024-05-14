@@ -5,7 +5,7 @@ Here is what you can find in this folder:
 3) PMT map plots
 4) many histograms
 5) IsotropyStuff.pdf - slides that explain how and why these histograms were made + what they mean
-
+6) A folder with PMT maps - they are the same maps, but they also show the vectorial sum of all PMT positions in Cartesians (after they have been rescaled to have length 1, because the real length varies slightly). 
 
 Each PMT map corresponds to one PMT Set. Each PMT set also corresponds to 9 histograms, one for each opening angle in the set {pi/3, pi/4, pi/6, pi/8, pi/10}.
 
@@ -24,6 +24,8 @@ Here are some observations about the results:
 	When we have uniformly-ish spread out missing PMTs, there is no tail at small cap angles, or the tail is tiny
 	When we have unformly-ish spread out missing PMTs, the normalized stdev doesn't change much when we increase the number of missing PMTs. For alpha = pi/8 for example, it stays around 0.03 (between 0.029 and 0.035), whereas a big hole makes it vary between 0.133 and 0.375
 	When we have uniformly-ish spread out missing PMTs, the median is always similar to the mean, so the median decreases as we remove more PMTs
+	
+	Looking at the vectorial sums of PMTs in the 9 Sets from the folder, these are as expected: the isotropic configurations have shorter vectorial sums because all the positions average out close to 0. These sums for isotropic configurations are less than 80. Even for a perfect detector, there sum on the z axis is not that close to 0 because there are PMTs missing at the top. The sums of the PMT Sets with a big hole are much bigger. This can be another way to quantify isotropy (suggested by James, thanks James!!). The only issue with this would be having opposite holes in the detector, where their contributions would cancel out. I'll have to see how the other metrics look like for such a detector state
 	
 	
 These two cases (one big hole vs evenly spread tiny holes) are the extremes. The results confirm that the normalized stdev is a good ish measure of isotropy. They also show that the median is not a good measure for coverage, because it doesn't change much if we keep turning off PMTs in roughly the same spot.
