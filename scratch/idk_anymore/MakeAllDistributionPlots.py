@@ -65,29 +65,126 @@ data6 = data0[2000:]
 data7 = data0[2500:]
 data8 = data0[3000:]
 data9 = data0[3500:]
-data10 = data0[4500:]
-data11 = data0[5000:]
-data12 = data0[5500:]
-data13 = data0[6000:]
-data14 = data
+data10 = data0[4000:]
+data11 = data0[4500:]
+data12 = data0[5000:]
+data13 = data0[5500:]
+data14 = data0[6000:]
+data15 = data0[7000:]
 
-# make PMTset data5 by randomly selecting 400 indices from data0 and excluding them
+# make PMTset by randomly selecting 400 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=400, replace=False)
-data6 = np.delete(data0, random_indices, axis=0)
+data16 = np.delete(data0, random_indices, axis=0)
 
-# make PMTset data5 by randomly selecting 800 indices from data0 and excluding them
+print( "random indices for 400 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 800 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=800, replace=False)
-data7 = np.delete(data0, random_indices, axis=0)
+data17 = np.delete(data0, random_indices, axis=0)
 
-# make PMTset data5 by randomly selecting 1200 indices from data0 and excluding them
+print( "random indices for 800 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 1200 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=1200, replace=False)
-data8 = np.delete(data0, random_indices, axis=0)
+data18 = np.delete(data0, random_indices, axis=0)
 
-# make PMTset data5 by randomly selecting 1600 indices from data0 and excluding them
+print( "random indices for 1200 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 1600 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=1600, replace=False)
-data9 = np.delete(data0, random_indices, axis=0)
+data19 = np.delete(data0, random_indices, axis=0)
 
-all_data = [data1, data2, data3, data4, data5, data6, data7, data8, data9]
+print( "random indices for 1600 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 2000 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=2000, replace=False)
+data20 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 2000 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 2500 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=2500, replace=False)
+data21 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 2500 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 3000 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=3000, replace=False)
+data22 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 3000 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 3500 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=3500, replace=False)
+data23 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 3500 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 4000 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=4000, replace=False)
+data24 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 4000 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 4500 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=4500, replace=False)
+data25 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 4500 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 5000 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=5000, replace=False)
+data26 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 5000 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 5500 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=5500, replace=False)
+data27 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 5500 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 6000 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=6000, replace=False)
+data28 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 6000 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+# make PMTset by randomly selecting 7000 indices from data0 and excluding them
+random_indices = np.random.choice(len(data0), size=7000, replace=False)
+data29 = np.delete(data0, random_indices, axis=0)
+
+print( "random indices for 7000 missing PMTs : ")
+print(random_indices)
+print("             ")
+
+all_data = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16, data17, data18, data19, data20, data21, data22, data23, data24, data25, data26, data27, data28, data29]
 
 # get grid nodes
 
@@ -115,6 +212,15 @@ for k in range(len(all_data)):
     rescaled_data = data / vector_lengths[:, np.newaxis]
     vector_lengths_rescaled = np.linalg.norm(rescaled_data, axis=1)
 
+    print("     ")
+    print("rescaled_data contains the Cartesian coordinates of the PMTs, rescaled to length 1")
+    print("shape is : " + str(rescaled_data.shape))
+    print("     ")
+
+    # Compute the vectorial sum along axis 0
+    vector_sum = np.sum(rescaled_data, axis=0)
+    vector_length = np.linalg.norm(vector_sum)
+
     # transform to polars to plot
 
     points_polars = convert_points_to_spherical(rescaled_data)
@@ -135,6 +241,10 @@ for k in range(len(all_data)):
     plt.xlabel('Phi')
     plt.ylabel('Theta')
     plt.title('PMTs and Nodes, PMT Set' + str(k+1))
+
+    # Add a text box with the value of vectorial_sum and its length
+    text = f'Vectorial Sum: {vector_sum}\nLength: {vector_length:.2f}'
+    plt.text(0.05, 0.95, text, transform=plt.gca().transAxes, va='top', bbox=dict(facecolor='white', alpha=0.5))
 
     plt.gca().set_aspect('equal', adjustable='box')
     plt.grid(True)
