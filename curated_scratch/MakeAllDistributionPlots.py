@@ -331,7 +331,7 @@ for k in range(len(all_data)):
         plt.axvline(x=median_value, color='purple', linestyle='--', label='Median: {:.2f}'.format(median_value))
 
         # Add variance and normalized standard deviation to legend
-        plt.text(0.05, 0.45, 'normalizedStdev: {:.6f}'.format(sqrt_variance, normalized_stdev),
+        plt.text(0.05, 0.45, 'normalizedStdev: {:.6f}'.format(normalized_stdev),
              horizontalalignment='left', verticalalignment='center', transform=plt.gca().transAxes,
              bbox=dict(facecolor='white', alpha=0.5), fontsize=font_size)
 
