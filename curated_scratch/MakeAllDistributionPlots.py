@@ -53,6 +53,13 @@ def angle_between_vectors(v1, v2):
 def peak_value(N, alpha):
     return N * (1 - np.cos(alpha)) / 2
 
+# Function to save indices to .txt file
+def save_indices_to_file(indices, pmt_set_num):
+    filename = f"random_indices_PMTSet{pmt_set_num}.txt"
+    np.savetxt(filename, indices, fmt='%d')
+    print(f"Saved random indices for PMTSet {pmt_set_num} to {filename}\n")
+
+
 # Load the CSV file with pmt x, y z coordinates
 data0 = np.genfromtxt('pmt_positions.csv', delimiter=',', skip_header=1)
 
@@ -75,114 +82,72 @@ data15 = data0[7000:]
 # make PMTset by randomly selecting 400 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=400, replace=False)
 data16 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 400 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 16)
 
 # make PMTset by randomly selecting 800 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=800, replace=False)
 data17 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 800 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 17)
 
 # make PMTset by randomly selecting 1200 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=1200, replace=False)
 data18 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 1200 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 18)
 
 # make PMTset by randomly selecting 1600 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=1600, replace=False)
 data19 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 1600 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 19)
 
 # make PMTset by randomly selecting 2000 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=2000, replace=False)
 data20 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 2000 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 20)
 
 # make PMTset by randomly selecting 2500 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=2500, replace=False)
 data21 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 2500 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 21)
 
 # make PMTset by randomly selecting 3000 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=3000, replace=False)
 data22 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 3000 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 22)
 
 # make PMTset by randomly selecting 3500 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=3500, replace=False)
 data23 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 3500 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 23)
 
 # make PMTset by randomly selecting 4000 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=4000, replace=False)
 data24 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 4000 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 24)
 
 # make PMTset by randomly selecting 4500 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=4500, replace=False)
 data25 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 4500 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 25)
 
 # make PMTset by randomly selecting 5000 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=5000, replace=False)
 data26 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 5000 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 26)
 
 # make PMTset by randomly selecting 5500 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=5500, replace=False)
 data27 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 5500 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 27)
 
 # make PMTset by randomly selecting 6000 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=6000, replace=False)
 data28 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 6000 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 28)
 
 # make PMTset by randomly selecting 7000 indices from data0 and excluding them
 random_indices = np.random.choice(len(data0), size=7000, replace=False)
 data29 = np.delete(data0, random_indices, axis=0)
-
-print( "random indices for 7000 missing PMTs : ")
-print(random_indices)
-print("             ")
+save_indices_to_file(random_indices, 29)
 
 all_data = [data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16, data17, data18, data19, data20, data21, data22, data23, data24, data25, data26, data27, data28, data29]
 
