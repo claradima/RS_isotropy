@@ -1,3 +1,5 @@
+import sys
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -42,7 +44,6 @@ def convert_points_to_spherical(points):
         r, phi, theta = cartesian_to_spherical(x, y, z)
         points_set_polars.append((r, phi, theta))
     return np.array(points_set_polars)
-
 
 def spherical_to_cartesian(r, phi, theta):
     x = r * np.cos(phi) * np.sin(theta)
@@ -107,6 +108,8 @@ def get_active_positions(indices_file, all_pos_cart, all_pos_sph):
     active_positions_cart = all_pos_cart[indices]
     active_positions_sph = all_pos_sph[indices]
     return active_positions_cart, active_positions_sph
+
+
 
 def compute_config_stats(active_pos_cart, active_pos_sph, nodes_pos_cart, nodes_pos_sph, set_name):
     # Create a new plot of all PMTs and Nodes
@@ -262,14 +265,17 @@ def compute_config_stats(active_pos_cart, active_pos_sph, nodes_pos_cart, nodes_
 # Import PMT positions and normalize
 
 all_pos_cart = np.genfromtxt('pmt_positions.csv', delimiter=',', skip_header=1)
+# PMT positions rescaled to have length 1; converted to spherical AFTER rescaling
 all_pos_cart_rescaled = all_pos_cart / np.linalg.norm(all_pos_cart, axis=1)[:, np.newaxis]
 all_pos_sph = convert_points_to_spherical(all_pos_cart_rescaled)
+
 
 # Import nodes positions
 
 nodes_pos_sph = np.genfromtxt('More_Nodes_Grid.csv', delimiter=',', skip_header=1)
 nodes_pos_cart = convert_points_to_cartesian(nodes_pos_sph)
 
+# TO DO - this is hard coded, maybe fix?
 set_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 
 for i in set_numbers:
@@ -277,3 +283,22 @@ for i in set_numbers:
     indices_file = f'PMTSet{i}_indices.txt'
     active_pos_cart, active_pos_sph = get_active_positions(indices_file, all_pos_cart, all_pos_sph)
     compute_config_stats(active_pos_cart, active_pos_sph, nodes_pos_cart, nodes_pos_sph, f"PMTSet{i}")
+    print("Finished computing stats for PMT set " + str(i))
+    print("--------------------------------------")
+
+print("Finished computing stats for all custom PMT sets")
+print('Computing stats for real run configurations')
+
+
+'''
+# TO DO - this is hardcoded - maybe fix
+run_set = [309434, 302640, 309504,302159, 355216, 356009, 351884, 351847,
+           358123, 303334, 311222, 355145, 358230, 304616, 302948,300515, 
+           300091]
+
+# Individual stats per each run already computed
+# Just reformat into csv files for one alpha and make plots
+
+for run in run_set:
+    '''
+

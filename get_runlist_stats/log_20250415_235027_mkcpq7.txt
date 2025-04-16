@@ -1,0 +1,25 @@
+Setting paths, filenames and commands
+Starting process of downloading zdab for run 364600
+
+--- Running command: expect /home/claramariadima/SNO/Singularititty/run_expect.exp ---
+Traceback (most recent call last):
+  File "/home/claramariadima/SNO/RS_isotropy/get_runlist_stats/full_nickel_loop.py", line 99, in <module>
+    run_cmd(f"expect {expect_script_path}", cwd=grid_singularity_path)
+  File "/home/claramariadima/SNO/RS_isotropy/get_runlist_stats/full_nickel_loop.py", line 61, in run_cmd
+    result = subprocess.run(cmd, shell=shell, cwd=cwd)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claramariadima/miniconda3/lib/python3.12/subprocess.py", line 552, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claramariadima/miniconda3/lib/python3.12/subprocess.py", line 1203, in communicate
+    self.wait()
+  File "/home/claramariadima/miniconda3/lib/python3.12/subprocess.py", line 1266, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claramariadima/miniconda3/lib/python3.12/subprocess.py", line 2061, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/home/claramariadima/miniconda3/lib/python3.12/subprocess.py", line 2019, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
