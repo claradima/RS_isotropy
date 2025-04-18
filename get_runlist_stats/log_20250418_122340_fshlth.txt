@@ -22179,3 +22179,301 @@ ProcBlock::~ProcBlock Processor usage statistics
 --------------------------------------
         calibratePMT: BeginOfRun:       1 call, 1.62088s/call,  1.6s total.
            dqpmtproc: BeginOfRun:       1 call, 0.05176s/call, <0.1s total.
+        calibratePMT:    DSEvent:  487506 calls, 0.00030s/call, 145.6s total.
+           dqpmtproc:    DSEvent:  487506 calls, < 1e-5 s/call,  3.2s total.
+        calibratePMT:   EndOfRun:       1 call, < 1e-5 s/call, <0.1s total.
+           dqpmtproc:   EndOfRun:       1 call, 0.32406s/call,  0.3s total.
+Gsim::~Gsim Event simulation statistics
+--------------------------------------
+                Gsim: Generation:       0 calls, NaN s/call, NaN s total.
+                Gsim: Simulation:       0 calls, NaN s/call, NaN s total.
+                Gsim:   EV Build:       0 calls, NaN s/call, NaN s total.
+                Gsim:  EV Output:       0 calls, NaN s/call, NaN s total.
+                Gsim:        Run:       0 calls, NaN s/call, NaN s total.
+
+✅ Docker container completed successfully for run 365155!
+Temporary macro and container script deleted for run 365155.
+
+--- Cleaning up outputs for run 365155 ---
+Deleted SNOP_0000365155_000.zdab from RAT directory for run 365155.
+Moved 365155_phi_theta.csv to phi_theta folder for run 365155.
+Deleted 365155_indices.txt from RAT directory for run 365155.
+Deleted log file rat.c1ec604db5a2.343.log for run 365155.
+Deleted DATAQUALITY_RECORDS_365155_p1.root for run 365155.
+Deleted DATAQUALITY_RECORDS_365155_p1.ratdb for run 365155.
+Deleted applied_365155_p1.png for run 365155.
+Deleted flags_365155_p1.png for run 365155.
+Deleted PMT coverage map before PMT Calibrations.png for run 365155.
+Deleted PMT coverage map after PMT Calibrations.png for run 365155.
+Deleted TGraph_GeoCoverageMap.png for run 365155.
+Deleted TGraph_GeoCoverageMap_365155_p1.png for run 365155.
+Deleted TH2D_CrateCoverageMap_365155_p1.png for run 365155.
+Deleted TH2D_UnCalCrateCoverageMap_365155_p1.png for run 365155.
+
+--- Running command: python3 compute_run_metrics.py -run_number 365155 ---
+--- Finished command: python3 compute_run_metrics.py -run_number 365155 ---
+
+=== RAT processing complete for run 365155 ===
+
+ZEBRA EOF after [65102] blocks and [490464] records
+This is SNO+ RAT 9c2cdbe82 (9c2cdbe82e1b5f6b2efdc9c0b3a7edeba17a593d)
+Status messages enabled: info 
+Hostname: c1ec604db5a2 PID: 343
+Seeding random number generator: 1767222745
+DB::Constructor:: Setting PgSQL server to default...
+Loading default database tables...
+DB::LoadAll: Loaded 194 tables
+Initializing Processor block...
+Initializing run manager...
+Appending RAT extra units to the units table...
+Initializing Gsim...
+Initializing the visualization manager
+Initializing event producers...
+Initializing user interface...
+Running macro...
+DB::Load: Loading /rat/data/geo/snoplusnative.geo
+Detector::Construct: Constructing detector materials.
+Detector::Construct: Loading detector geometry from geo/snoplusnative.geo
+DB::LoadFile: /rat/data/geo/snoplusnative.geo has already been loaded. Reusing.
+Detector::Construct: Loading pmt info from pmt/PMTINFO_sept2018.ratdb
+Detector::Construct: Constructing geometry.
+PhysicsList::AddAttenuationAndCerenkov Omitting optical Mie scattering
+ProcBlockManager::SelectProcessor: Initializing processor calibratePMT
+ProcBlockManager::SelectProcessor: Initializing processor dqpmtproc
+Processing file SNOP_0000365152_000.zdab
+InZDABProducer::ReadEvents: Reading from SNOP_0000365152_000.zdab
+Producer::InitialiseRun: Initialising a new run, id: 365152
+DB::Loading PgSQL backend
+DB::RefreshTablesOnServer : Tables on server include ATMOSPHERICS AV_OFFSET_RUNTIME BLINDNESS_CHUNKS BLINDNESS_RUN_LEVEL CALIB_COMMON_RUN_LEVEL CGT_SYNC24 CGT_SYNC24_PREVIOUS_RUNS CMOS_SYNC16 CMOS_SYNC16_PREVIOUS_RUNS CSS_CUTS CSS_CUT_VALUES CSS_RESULT CSS_SELECTION CoincidentNeutronTable DAQ_RUN_LEVEL DATAQUALITY_RECORDS DQCHECKS DQLIVETIME DQLL DROPOUT DYECELL ECA_PDST ECA_TSLP GREY_DISC_PARAMETERS LAST_ATMOSPHERIC LAST_MUON LBDYEWAVE LIVETIME LIVETIME_CUT MISSEDMUONFOLLOWER MISSED_BURST MISSED_COUNTS MUONTAG N2DYELASER_RUN_LEVEL NOISE_RUN_INTEGRATED NOISE_RUN_LEVEL NOISE_RUN_LEVEL_MONITORING OPTICS PCA_TW PEDCUT PMTCALIB PMT_DQXX PMT_VARIATION REACTOR_STATUS RISETIME RS_REPORT RUN SCINT_LEVEL_RUNTIME SMELLIE_RUN TELLIE_FIRE_PARS TELLIE_PATCH_MAPPING TELLIE_PCA_FIBRE_OFFSETS TELLIE_PCA_FIBRE_OFFSETS_MASTER TELLIE_PCA_FIBRE_OFFSETS_SLAVE TELLIE_RUN TPMUONFOLLOWER TRIGGER_CLOCK_JUMPS
+DB::FindTable: Loaded table AV_OFFSET_RUNTIME[] from server
+DB::FindTable: Loaded table PMT_DQXX[] from server
+DB::FindTable: Loaded table ECA_PDST[5_10] from server
+DB::FindTable: Loaded table ECA_TSLP[5_200] from server
+DB::FindTable: Loaded table PCA_TW[] from server
+DB::FindTable: Loaded table MISSED_COUNTS[] from server
+DB::FindTable: Loaded table CMOS_SYNC16[] from server
+DB::FindTable: Loaded table CMOS_SYNC16_PREVIOUS_RUNS[] from server
+DB::FindTable: Loaded table CGT_SYNC24[] from server
+DB::FindTable: Loaded table CGT_SYNC24_PREVIOUS_RUNS[] from server
+DB::FindTable: Loaded table CSS_SELECTION[] from server
+ChanSWStatus: CSS_RESULT table not found. IsTubeStable() will return true by default.
+Point3D::BeginOfRun: new coordinate system av (id 1, z offset = 194.76)
+Point3D::BeginOfRun: new coordinate system innerPMT (id 0, z offset = 0)
+DB::FindTable: Loaded table OPTICS[acrylic_snoplus] from server
+DB::FindTable: Loaded table OPTICS[externalwater_snoplus] from server
+DB::FindTable: Loaded table PMTCALIB[] from server
+ChannelEfficiency::BeginOfRun: Average channel efficiency across normal tubes is 0.767322
+ChannelEfficiency::BeginOfRun: Average channel efficiency across normal + OWLs is 0.767751
+ChannelEfficiency::BeginOfRun: Average channel efficiency across normal tubes is 0.767322
+ChannelEfficiency::BeginOfRun: Average channel efficiency across normal + OWLs is 0.767751
+DB::FindTable: Loaded table DAQ_RUN_LEVEL[] from server
+ (ECACal::BeginOfRun) Using pattern_rate 5_10 for PDST 
+ (ECACal::BeginOfRun) Using pattern_rate 5_200 for TSLP 
+DB::FindTable: Loaded table DQCHECKS[neutrino] from server
+Producer::EndOfRun: Ending run, id: 365152
+Info in <TCanvas::Print>: png file TH2D_CrateCoverageMap_365152_p1.png has been created
+Info in <TCanvas::Print>: png file TH2D_UnCalCrateCoverageMap_365152_p1.png has been created
+Info in <TCanvas::Print>: png file TGraph_GeoCoverageMap_365152_p1.png has been created
+Info in <TCanvas::Print>: png file PMT coverage map after PMT Calibrations.png has been created
+Info in <TCanvas::Print>: png file PMT coverage map before PMT Calibrations.png has been created
+Info in <TCanvas::Print>: png file TGraph_GeoCoverageMap.png has been created
+Info in <TCanvas::Print>: png file applied_365152_p1.png has been created
+Info in <TCanvas::Print>: png file flags_365152_p1.png has been created
+GLG4PrimaryGeneratorAction::~GLG4PrimaryGeneratorAction: Deleting generators.
+
+Run time:    219.83 sec
+CPU usage: user   168.17 sec	sys   2.21 sec
+
+ProcBlock::~ProcBlock Processor usage statistics
+--------------------------------------
+        calibratePMT: BeginOfRun:       1 call, 1.61303s/call,  1.6s total.
+           dqpmtproc: BeginOfRun:       1 call, 0.03510s/call, <0.1s total.
+        calibratePMT:    DSEvent:  488228 calls, 0.00029s/call, 143.6s total.
+           dqpmtproc:    DSEvent:  488228 calls, < 1e-5 s/call,  3.2s total.
+        calibratePMT:   EndOfRun:       1 call, < 1e-5 s/call, <0.1s total.
+           dqpmtproc:   EndOfRun:       1 call, 0.32716s/call,  0.3s total.
+Gsim::~Gsim Event simulation statistics
+--------------------------------------
+                Gsim: Generation:       0 calls, NaN s/call, NaN s total.
+                Gsim: Simulation:       0 calls, NaN s/call, NaN s total.
+                Gsim:   EV Build:       0 calls, NaN s/call, NaN s total.
+                Gsim:  EV Output:       0 calls, NaN s/call, NaN s total.
+                Gsim:        Run:       0 calls, NaN s/call, NaN s total.
+
+✅ Docker container completed successfully for run 365152!
+Temporary macro and container script deleted for run 365152.
+
+--- Cleaning up outputs for run 365152 ---
+Deleted SNOP_0000365152_000.zdab from RAT directory for run 365152.
+Moved 365152_phi_theta.csv to phi_theta folder for run 365152.
+Deleted 365152_indices.txt from RAT directory for run 365152.
+No rat.*.log files found for run 365152.
+Deleted DATAQUALITY_RECORDS_365152_p1.root for run 365152.
+Deleted DATAQUALITY_RECORDS_365152_p1.ratdb for run 365152.
+Deleted applied_365152_p1.png for run 365152.
+Deleted flags_365152_p1.png for run 365152.
+Deleted PMT coverage map before PMT Calibrations.png for run 365152.
+Deleted PMT coverage map after PMT Calibrations.png for run 365152.
+Deleted TGraph_GeoCoverageMap.png for run 365152.
+Deleted TGraph_GeoCoverageMap_365152_p1.png for run 365152.
+Deleted TH2D_CrateCoverageMap_365152_p1.png for run 365152.
+Deleted TH2D_UnCalCrateCoverageMap_365152_p1.png for run 365152.
+
+--- Running command: python3 compute_run_metrics.py -run_number 365152 ---
+--- Finished command: python3 compute_run_metrics.py -run_number 365152 ---
+
+=== RAT processing complete for run 365152 ===
+
+Waiting for SNOP_0000365158_000.zdab to appear…
+SNOP_0000365158_000.zdab is fully downloaded (999997440 bytes).
+Deleted temporary filelist: filelist_365158.dat
+=== Download completed for run 365158 ===
+Run 365163: Sleeping for 5.9 seconds before starting raw_list.
+
+>> Download finished for run 365158; queueing processing...
+
+
+=== Starting RAT processing for run 365158 ===
+Already on branch: get_pmt_plots for run 365158
+Moved SNOP_0000365158_000.zdab to RAT directory for run 365158.
+Created temporary macro file /home/claramariadima/SNO/rat/get_pmt_positions_365158.mac for run 365158.
+
+--- Building RAT and running macro in Docker for run 365158 ---
+scons: Reading SConscript files ...
+PSQL library already built...
+
+  Performing checks to build Postgres library...
+  
+Determining size align of short...(cached) 2
+Determining size align of int...(cached) 4
+Determining size align of long...(cached) 8
+Determining size align of double...(cached) 8
+Checking for flexible array member...(cached) yes
+Checking for C function crypt()... (cached) no
+Checking whether fdatasync is declared... (cached) yes
+Checking whether F_FULLFSYNC is declared... (cached) no
+Checking for C function posix_fadvise()... (cached) no
+Checking for C function snprintf()... (cached) yes
+Checking for C function vsnprintf()... (cached) yes
+Checking for C function strlcat()... (cached) no
+Checking for C function strlcpy()... (cached) no
+Checking for C function fdatasync()... (cached) no
+Checking for C function fls()... (cached) no
+Checking for C function fseeko()... (cached) yes
+Checking for C function getaddrinfo()... (cached) yes
+Checking for C function gethostbyname_r()... (cached) yes
+Checking for C function getifaddrs()... (cached) yes
+Checking for C function getpeereid()... (cached) no
+Checking for C function gettimeofday()... (cached) yes
+Checking for C header file gssapi/gssapi.h... (cached) yes
+Checking for C header file gssapi.h... (cached) yes
+Checking for C header file history.h... (cached) no
+Checking for C function history_truncate_file()... (cached) no
+Checking for C header file ieeefp.h... (cached) no
+Checking for C header file ifaddrs.h... (cached) yes
+Checking for C function inet_aton()... (cached) yes
+Checking for C header file inttypes.h... (cached) yes
+Checking for C type int64... (cached) no
+Checking for C type int8... (cached) no
+Checking for C type intptr_t... (cached) yes
+Checking for C type struct sockaddr_in6... (cached) yes
+Checking for C function isinf()... (cached) no
+Checking for C header file langinfo.h... (cached) yes
+Checking for C library -lm... (cached) yes
+Checking for C library -lz... (cached) yes
+Checking if long int is a working 64 bit integer type...(cached) yes
+Checking for C type long long int... (cached) yes
+Checking if long long int is a working 64 bit integer type...(cached) yes
+Checking for C function memmove()... (cached) yes
+Checking for C header file memory.h... (cached) yes
+Checking for C function mkdtemp()... (cached) yes
+Checking for C header file netinet/in.h... (cached) yes
+Checking for C header file netinet/tcp.h... (cached) yes
+Checking for C header file net/if.h... (cached) yes
+Checking for C header file poll.h... (cached) yes
+Checking for C function poll()... (cached) yes
+Checking for C function posix_fadvise()... (cached) yes
+Checking for POSIX signal interface...(cached) yes
+Checking whether assembler supports lwarx hint bit...(cached) no
+Checking for C function random()... (cached) yes
+Checking for C function rint()... (cached) yes
+Checking for C type sig_atomic_t... (cached) yes
+Checking for C function snprintf()... (cached) yes
+Checking for C function srandom()... (cached) yes
+Checking for C header file stdint.h... (cached) yes
+Checking for C header file stdlib.h... (cached) yes
+Checking for C function strerror()... (cached) yes
+Checking for C function strerror_r()... (cached) yes
+Checking for C header file strings.h... (cached) yes
+Checking for C function strtoll()... (cached) yes
+Checking for C function strtoq()... (cached) yes
+Checking for C function strtoull()... (cached) yes
+Checking for C function strtouq()... (cached) yes
+Checking for C header file sys/socket.h... (cached) yes
+Checking for C type struct addrinfo... (cached) yes
+Checking for C type struct sockaddr... (cached) yes
+Checking whether member sa_len is part of struct sockaddr...(cached) no
+Checking for C type struct sockaddr_storage... (cached) yes
+Checking whether member ss_family is part of struct sockaddr_storage...(cached) yes
+Checking whether member ss_len is part of struct sockaddr_storage...(cached) no
+Checking whether member __ss_family is part of struct sockaddr_storage...(cached) no
+Checking whether member __ss_len is part of struct sockaddr_storage...(cached) no
+Checking for C header file time.h... (cached) yes
+Checking for C header file sys/time.h... (cached) yes
+Checking whether to use time.h ...(cached) yes
+Checking whether member tm_zone is part of struct tm...(cached) yes
+Checking for C header file sys/ioctl.h... (cached) yes
+Checking for C header file sys/poll.h... (cached) yes
+Checking for C header file sys/select.h... (cached) yes
+Checking for C header file sys/sockio.h... (cached) no
+Checking for C header file sys/ucred.h... (cached) no
+Checking for C header file sys/un.h... (cached) yes
+Checking for C header file sys/termios.h... (cached) yes
+Checking for C function towlower()... (cached) yes
+Checking whether member tm_zone is part of struct tm...(cached) yes
+Checking for C type uint64... (cached) no
+Checking for C type uint8... (cached) no
+Checking for C type struct sockaddr_un... (cached) yes
+Checking for C function unsetenv()... (cached) yes
+Checking for C function unsetenv()... (cached) yes
+Checking for C function wcstombs()... (cached) yes
+Checking for C function wcstombs_l()... (cached) no
+Checking whether compiler understands __builtin_types_compatible_p...(cached) yes
+Checking whether compiler understands __builtin_unreachable...(cached) yes
+Checking whether compiler understands _Static_assert...(cached) yes
+Checking whether compiler understands _Static_assert...(cached) yes
+Checking 'l' as snprintf length modifier for long long int...(cached) yes
+Determining size align of long long int...(cached) 8
+Checking for __int128...(cached) yes
+Checking for quiet inline (no complaint if unreferenced)...(cached) yes
+Checking whether strerror_r returns int...(cached) no
+Checking whether snprintf supports the %z modifier...(cached) yes
+Checking for C function accept()... (cached) yes
+Checking types of arguments for accept()...(cached) extern int accept (int,struct sockaddr *,socklen_t*);
+PSQL::Producing the configuration header 'pg_config.h'...
+PSQL::Producing the configuration header 'pg_config_ext.h'...
+PSQL::Storing configuration into cache 'pg_config.pkl'...
+
+
+  PostgreSQL configuration completed...
+
+  
+RATVERSION file written
+RAT version  9c2cdbe82
+RAT revision 9c2cdbe82e1b5f6b2efdc9c0b3a7edeba17a593d
+ROOT version 6.22.8
+GEANT4 version 10.0.4
+Checking for C library G4clhep... (cached) yes
+Checking for C++ library zmq... (cached) no
+scons: Adding external dependency on [CURL]
+scons: Adding external dependency on [bz2]
+Appending custom defines: []
+scons: done reading SConscript files.
+scons: Building targets ...
+Writing Version.cc file.
+scons: `psqlheaders' is up to date.
+scons: `lib/libpqrat_Linux.a' is up to date.
+scons: `python/_pg.so' is up to date.
+scons: `ratheaders' is up to date.
+scons: `lib/RAT_Dict_rdict.pcm' is up to date.
+scons: `bin/RAT_Dict_rdict.pcm' is up to date.

@@ -83,6 +83,10 @@ Check the .cvs file for results at the end :)
     - check the log file seems ok and nothing weird happened and nothing failed on the way
     
     - the specified csv file contains info for all the runs in the runlist; check how many runs are there and whether it matches with the total number of runs in the runlist
+  
+  - **script files:** `full_nickel_loop.py`, `full_nickel_loop_optimized.py` → previous versions of `full_loop_optimized.py` that had output files and some other stuff hardcoded; the first script had no paralellisation
+  
+  - **script file:** `compute_runlist_metrics.py` → similar to `compute_run_metrics.py` but it computes these for a full runlist. It assumes the `*_phi_theta.csv` files for each run in the list are already in the `phi_theta` dir. It has the name of the runlist .txt file hardcoded, so if you want to use this you have to go in the code and change it. Can be useful if you want to separate this step form `full_nickel_loop.py`, but it is currently integrated there.
 
 
 
