@@ -24,6 +24,12 @@ Check the .cvs file for results at the end :)
 
 
 
+After you run `full_loop_optimized.py` for your desired runlist, you should also urn `compute_runlist_stats.py` for the same runlist by using the command:
+
+`pyton3 compute_runlist_stats.py --input-csv "{runlist_name}_coverage_stats.csv"`
+
+The name format is important - it will create a subdir in `/home/claramariadima/SNO/RS_isotropy/get_runlist_stats/runlist_stats` and dump some plots there with the distribution of each metric across the runlist
+
 ###### Other contents of this folder and further explanations:
 
 - **dir:** `detailed_stats_for_testing_364600` → contains histograms with the cap count distributions for run 364600; not actively used, I just made these plots when testing the `compute_run_metrics.py` script and dumped the plots in this folder. As it is now, these plots are not produced by the script anymore (would get too many plots...)
@@ -86,9 +92,17 @@ Check the .cvs file for results at the end :)
   
   - **script files:** `full_nickel_loop.py`, `full_nickel_loop_optimized.py` → previous versions of `full_loop_optimized.py` that had output files and some other stuff hardcoded; the first script had no paralellisation
   
+  - **script file:** `compute_runlist_stats.py` → this script should be used after running `full_loop_optimized.py` for your desired runlist. You need to run it with `pyton3 compute_runlist_stats.py --input-csv "{runlist_name}_coverage_stats.csv"`. Some things to keep in mind
+    
+    - the name format of the input csv file is important, because it creates a folder called {runlist_name} where it dumps the resulting plots
+    
+    - if a folder already exists, it makes a new one and adds `_new` at the end of the name; this allows you to run the script even before `full_loop_optimized.py` is complete if you are curious about partial results
+    
+    - can handle separator lines used in the input csv file → if the entry in the run_number column is not an integer, the line corresponding to that entry won't be taken into account when computing the stats
+    
+    - 
+  
   - **script file:** `compute_runlist_metrics.py` → similar to `compute_run_metrics.py` but it computes these for a full runlist. It assumes the `*_phi_theta.csv` files for each run in the list are already in the `phi_theta` dir. It has the name of the runlist .txt file hardcoded, so if you want to use this you have to go in the code and change it. Can be useful if you want to separate this step form `full_nickel_loop.py`, but it is currently integrated there.
-
-
 
 - **SUMMARY**
   
@@ -121,8 +135,6 @@ Check the .cvs file for results at the end :)
     - it works
     
     - it makes me happy
-
-
 
 #### 16 April - Initial Setup
 
@@ -215,7 +227,5 @@ Here is what you can find in this folder:
     - it works
     
     - it makes me happy
-
-
 
 #### 18 April Updates
