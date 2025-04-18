@@ -48,8 +48,8 @@ snopl_image = 'snopl7.img'
 
 # --- Credentials ---
 couch_user = 'snoplus'
-couch_pass = 'password'  # <-- Replace with real password
-sudo_pass = 'password'  # <-- Replace with real password
+couch_pass = 'BiPo214intheneck'  # <-- Replace with real password
+sudo_pass = ':18kyorosteaua18:'  # <-- Replace with real password
 
 # --- Runlist ---
 test_runlist = [365063, 365066]

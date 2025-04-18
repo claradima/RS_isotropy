@@ -58,8 +58,6 @@ Here is what you can find in this folder:
     
     - the `nickel_coverage_stats.csv` contains info for all the runs in the runlist; check how many runs are there and whether it matches with the total number of runs in the runlist
 
-
-
 - **NOTE: NEXT STEPS**
   
   - I have to add another script that looks at each coverage or isotropy metric from `nickel_coverage_stats.csv` and computes its distribution over the specified runlist 

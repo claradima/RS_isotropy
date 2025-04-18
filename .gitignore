@@ -1,2 +1,7 @@
 pmt_positions.csv
 
+*.zdab
+
+*PMT_maps/
+*phi_theta/
+get_runlist_stats/log*

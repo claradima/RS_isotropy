@@ -17,6 +17,7 @@ def parse_args():
         default=364600,
         help="Run number (integer). Default is 300000 - but that's bad, deffo change it."
     )
+    
     args = parser.parse_args()
     return args.run_number
 
@@ -73,10 +74,32 @@ def peak_value(N, alpha):
 # Note: function below reads PMT coords form file that contains normalized
 #       spherical coords; also returns cartesian coords
 
-def get_active_positions(run_number):
+def get_active_positions_old(run_number):
     phi_theta_file = f'/home/claramariadima/SNO/RS_isotropy/get_runlist_stats/phi_theta/{run_number}_phi_theta.csv'
     active_pos_sph = np.loadtxt(phi_theta_file, delimiter=",", dtype=float)
     #print(type(active_pos_sph))
+    active_pos_cart = convert_points_to_cartesian(active_pos_sph)
+    return active_pos_cart, active_pos_sph
+    
+# I suspect some of the PMTs in the phi_theta_file were duplicated, so use
+# this version of the function instead: def get_active_positions(run_number):
+
+def get_active_positions(run_number):
+    phi_theta_file = f'/home/claramariadima/SNO/RS_isotropy/get_runlist_stats/phi_theta/{run_number}_phi_theta.csv'
+    active_pos_sph = np.loadtxt(phi_theta_file, delimiter=",", dtype=float)
+
+    # Count original number of rows
+    original_count = active_pos_sph.shape[0]
+
+    # Remove duplicate rows
+    active_pos_sph = np.unique(active_pos_sph, axis=0)
+
+    # Count how many duplicates were removed
+    new_count = active_pos_sph.shape[0]
+    removed = original_count - new_count
+    if removed > 0:
+        print(f"⚠️ Removed {removed} duplicate entries from {run_number}_phi_theta.csv")
+
     active_pos_cart = convert_points_to_cartesian(active_pos_sph)
     return active_pos_cart, active_pos_sph
     
@@ -109,12 +132,10 @@ def create_results_csv(filename):
         "pio4_stdev",
         "pio6_stdev",
         "pio8_stdev",
-        "pio10_stdev",
         "pio3_stdev_n",
         "pio4_stdev_n",
         "pio6_stdev_n",
-        "pio8_stdev_n",
-        "pio10_stdev_n"
+        "pio8_stdev_n"
     ]
     
     with open(filename, mode='w', newline='') as file:
@@ -276,47 +297,42 @@ if __name__ == "__main__":
         print(f"CSV File '{filename}' already exists.")
         
     # Compute stats for run
-    print('Computing alpha-independent stats')
+    print(f'Computing alpha-independent stats for run {run_number}')
     total_N = len(active_pos_cart)
     vector_sum = np.sum(active_pos_cart, axis=0)
     vector_sum_norm = np.linalg.norm(vector_sum)
-    print('Alpha-independent stats done')
+    print(f'Alpha-independent stats done for run{run_number}')
     print('  ')
 
-    print('Computing alpha-dependent stats')
-    print('Computing for alpha = pi/3')    
+    print(f'Computing alpha-dependent stats for run {run_number}')
+    print(f'Computing for alpha = pi/3 for run {run_number}')    
     pio3_stdev, pio3_stdev_n = compute_coverage_stats(alpha = (np.pi/3), run_number = run_number, active_pos_cart = active_pos_cart, active_pos_sph = active_pos_sph, nodes_pos_cart = nodes_pos_cart, nodes_pos_sph = nodes_pos_sph)
-    print('alpha = pi/3 done')
+    print(f'alpha = pi/3 done for run {run_number}')
     print('  ')
     
-    print('Computing alpha-dependent stats')
-    print('Computing for alpha = pi/4')    
+    #print('Computing alpha-dependent stats')
+    print(f'Computing for alpha = pi/4 for run {run_number}')    
     pio4_stdev, pio4_stdev_n = compute_coverage_stats(alpha = (np.pi/4), run_number = run_number, active_pos_cart = active_pos_cart, active_pos_sph = active_pos_sph, nodes_pos_cart = nodes_pos_cart, nodes_pos_sph = nodes_pos_sph)
-    print('alpha = pi/4 done')
+    print(f'alpha = pi/4 done for run {run_number}')
     print('  ')
     
-    print('Computing alpha-dependent stats')
-    print('Computing for alpha = pi/6')    
+    #print('Computing alpha-dependent stats')
+    print(f'Computing for alpha = pi/6 for run {run_number}')    
     pio6_stdev, pio6_stdev_n = compute_coverage_stats(alpha = (np.pi/6), run_number = run_number, active_pos_cart = active_pos_cart, active_pos_sph = active_pos_sph, nodes_pos_cart = nodes_pos_cart, nodes_pos_sph = nodes_pos_sph)
-    print('alpha = pi/6 done')
+    print(f'alpha = pi/6 done for run {run_number}')
     print('  ')
     
-    print('Computing alpha-dependent stats')
-    print('Computing for alpha = pi/8')    
+    #print('Computing alpha-dependent stats')
+    print(f'Computing for alpha = pi/8 for run {run_number}')    
     pio8_stdev, pio8_stdev_n = compute_coverage_stats(alpha = (np.pi/8), run_number = run_number, active_pos_cart = active_pos_cart, active_pos_sph = active_pos_sph, nodes_pos_cart = nodes_pos_cart, nodes_pos_sph = nodes_pos_sph)
-    print('alpha = pi/8 done')
+    print(f'alpha = pi/8 done for run {run_number}')
     print('  ')
     
-    print('Computing alpha-dependent stats')
-    print('Computing for alpha = pi/10')    
-    pio10_stdev, pio10_stdev_n = compute_coverage_stats(alpha = (np.pi/10), run_number = run_number, active_pos_cart = active_pos_cart, active_pos_sph = active_pos_sph, nodes_pos_cart = nodes_pos_cart, nodes_pos_sph = nodes_pos_sph)
-    print('alpha = pi/10 done')
-    print('  ')
     
     # Add stats to csv file
     print(f'Appending stats to csv file for run {run_number}')
     append_coverage_stats(
-    "nickel_coverage_stats.csv",
+    filename,
     run_number,
     total_N,
     vector_sum_norm,
